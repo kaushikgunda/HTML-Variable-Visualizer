@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<meta charset="UTF-8"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+	<style>
+		.slidecontainer {
+			width: 100%;
+		}
+		.underline{
+			text-decoration: underline;
+		}
+		.strike{
+			text-decoration: line-through;;
+		}
+		.bold{
+			font-weight: bold;
+		}
+		
+	</style>
+
+
+<p style="text-align: center;opacity: 0.6;font-size: 40px;display: inline-block;margin-top: 30px;margin-left: 40%">HTML Variable Visualizer</p>
+</div>
+<h1 style="text-align: center;"> Text </h1>
+	<div style="margin-left: 20%;margin-right: 20%;margin-top: 5%; ">
+		<div style="float:left;border-style: solid;
+		border-width: 5px;padding:40px">
+		<div class="slidecontainer">
+			<span> Font-Size</span>
+			<input type="range" min="1" max="40" value="20" id="font-size" data-show-value="true">
+			<span id="font-size-val" style="font-weight: bold"></span>
+		</div>
+		<div >
+			<div style="float:left;margin-top:30px">
+				<i class="fas fa-underline fa-3x" id="underline"></i>
+			</div>
+			<div style="float:left;margin-top:30px;margin-left:20px">
+				<i class="fas fa-strikethrough fa-3x"></i>
+			</div>
+			<div style="float:left;margin-top:30px;margin-left:20px">
+				<i class="fas fa-bold fa-3x"></i>
+			</div>
+		</div>
+		<div>
+
+			<div style="float:left;margin-top:30px;">
+				<i class="fas fa-align-left fa-3x" id="underline"></i>
+			</div>
+
+			<div style="float:left;margin-top:30px;margin-left: 20px">
+				<i class="fas fa-align-center fa-3x" id="underline"></i>
+			</div>
+			<div style="float:left;margin-top:30px;margin-left:20px;margin-bottom: 30px">
+				<i class="fas fa-align-right fa-3x" id="underline"></i>
+			</div>
+		</div>
+
+		<div class="slidecontainer" style="margin-bottom: 30px" >
+			<span> Letter-spacing</span>
+			<input type="range" min="-10" max="100" value="0" id="letter-spacing" >
+			<span id="letter-spacing-val" style="font-weight: bold"></span>
+		</div>
+		<div class="slidecontainer"  style="margin-bottom: 30px">
+			<span> Line-Height</span>
+			<input type="range" min="0.2" max="5" value="1" id="line-height" >
+			<span id="line-height-val" style="font-weight: bold"></span>
+
+		</div>
+		<div class="slidecontainer" >
+			<span>Word-spacing</span>
+			<input type="range" min="0" max="20" value="0" id="word-spacing" >
+			<span id="word-spacing-val" style="font-weight: bold"></span>
+
+		</div>
+		<div >
+			<span>Text-Color</span>
+			<input type="color" value="black" id="color">
+		</div>
+	</div>
+	<div style="float: left;margin-left:400px;width: 400px;height: 400px;padding:150px;padding-top: 100px" >
+		<p id="text" style="font-size:20px;text-align: center;">Hey , I am kaushik <br> How are you doin  </p>
+	</div>
+</div>
+<script type="text/javascript">
+
+
+	$(document).ready(function() { 
+		$("#font-size").val(20);
+	})
+	$(document).ready(function() { 
+		$("#letter-spacing").val(0);
+	})
+	$(document).ready(function() { 
+		$("#line-height").val(1);
+	})
+	$(document).ready(function() { 
+		$("#word-spacing").val(0);
+	})
+	$(document).ready(function() { 
+		$("#color").val("black");
+	})
+	$("#font-size").on('input',function(){
+		var x= "";
+		$("#text").css('font-size',$(this).val().toString()+'px');
+		changefont();
+	})
+	$(document).on('click','.fa-underline',function(){
+		console.log("hello");
+		$('#text').toggleClass('underline');
+	});
+	$(document).on('click','.fa-strikethrough',function(){
+		console.log("hello");
+		$('#text').toggleClass('strike');
+
+	});
+	$(document).on('click','.fa-bold',function(){
+		console.log("hello");
+		$('#text').toggleClass('bold');
+	})
+	$(document).on('click','.fa-align-center',function(){
+		console.log("hello");
+		document.getElementById("text").style.textAlign="center";	
+	});
+	$(document).on('click','.fa-align-left',function(){
+		console.log("hello");
+		document.getElementById("text").style.textAlign="left";
+
+	});
+	$(document).on('click','.fa-align-right',function(){
+		console.log("hello");
+		document.getElementById("text").style.textAlign="right";
+	})
+	$("#letter-spacing").on('input',function(){
+
+		$("#text").css('letter-spacing',$(this).val().toString()+'px');
+		changeletter();
+
+	})
+	$("#line-height").on('input',function(){
+
+		$("#text").css('line-height',$(this).val().toString());
+		changeheight();
+	})
+	$("#word-spacing").on('input',function(){
+
+		$("#text").css('word-spacing',$(this).val().toString()+'px');
+		changeword();
+	})
+	$("#color").on('input',function(){
+		$("#text").css('color',$(this).val().toString());
+	})
+	changefont=function(){
+		var x=$("#font-size").val();
+		$("#font-size-val").text(x);
+	}
+	changeletter=function(){
+		var x=$("#letter-spacing").val();
+		$("#letter-spacing-val").text(x);
+	}
+	changeword=function()
+	{
+		var x=$("#word-spacing").val();
+		$("#word-spacing-val").text(x);
+	}
+	changeheight=function()
+	{
+		var x=$("#line-height").val();
+		$("#line-height-val").text(x);
+	}
+	changefont();
+	changeletter();
+	changeword();
+	changeheight();
+</script>
+
+
+<div style="clear:both;">
+
+
+<h1 style="text-align: center;padding-top: 100px"> Box-Model </h1>
+	<div style="padding-left:400px;padding-top: 100px;padding-bottom: 100px">
+		<div style="float: left;margin-right: 10%;border-style: solid;
+		border-width: 5px;padding:30px">
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Padding for Div-1</span>
+				<input type="range" min="20" max="100" value="50" id="padding1" data-show-value="true">
+				<span id="padding1val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Padding for Div-2</span>
+				<input type="range" min="20" max="100" value="50" id="padding2" data-show-value="true">
+				<span id="padding2val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Margin for Div-1</span>
+				<input type="range" min="0" max="100" value="0" id="margin1" data-show-value="true">
+				<span id="margin1val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Margin for Div-2</span>
+				<input type="range" min="0" max="100" value="0" id="margin2" data-show-value="true">
+				<span id="margin2val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Width for div-1</span>
+				<input type="range" min="100" max="200" value="100" id="width1" data-show-value="true">
+				<span id="width1val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Height for div-1</span>
+				<input type="range" min="100" max="200" value="100" id="height1" data-show-value="true">
+				<span id="height1val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Width for div-2</span>
+				<input type="range" min="100" max="200" value="100" id="width2" data-show-value="true">
+				<span id="width2val" style="font-weight: bold"></span>
+			</div>
+			<div class="slidecontainer" style="margin-bottom: 10px">
+				<span> Height for div-2</span>
+				<input type="range" min="100" max="200" value="100" id="height2" data-show-value="true">
+				<span id="height2val" style="font-weight: bold"></span>
+			</div>
+
+		</div>
+		<div style="float:left;background-color:yellow;overflow: hidden;max-width: 700px;max-width: 700px;min-width: 600px;min-height: 600px">
+			<div style="padding:50px;border-style: solid;float: left;
+			border-width: 5px;width: 100px;height: 100px;background-color:#9194E1 " id="1">
+
+			<p style="text-align: center;background-color: #88E8F9;display: inline-block;"> Div 1 </p>
+		</div>
+		<div style="padding:50px;border-style: solid;float: left;
+		border-width: 5px;width: 100px;height: 100px;background-color:#9194E1; " id="2">
+
+		<p style="text-align: center;background-color: #88E8F9;display: inline-block;"> Div 2 </p>
+	</div>
+
+</div>
+</div>
+</div>
+<p style="font-size:20px;clear: both;text-align: center;"> Note: Design inspired from Bret Victor's design patterns </p>
+
+<script type="text/javascript">
+
+	$(document).ready(function() { 
+		$("#padding1").val(50);
+	})
+	$("#padding1").on('input',function(){
+
+		$("#1").css('padding',$(this).val().toString()+'px');
+		changepadding1();
+	})
+	changepadding1=function()
+	{
+		var x= $("#1").css('padding-top').toString();
+		console.log($("#1").css('padding-top'));
+		$("#padding1val").text(x.toString());
+	}
+	changepadding1();
+
+	$(document).ready(function() { 
+		$("#padding2").val(50);
+	})
+	$("#padding2").on('input',function(){
+
+		$("#2").css('padding',$(this).val().toString()+'px');
+		changepadding2();
+	})
+	changepadding2=function()
+	{
+		var x= $("#2").css('padding-top').toString();
+		console.log($("#2").css('padding-top'));
+		$("#padding2val").text(x.toString());
+	}
+	changepadding2();
+
+
+
+	$(document).ready(function() { 
+		$("#margin1").val(0);
+	});
+	$("#margin1").on('input',function(){
+		$("#1").css('margin',$(this).val().toString()+'px');
+		changemargin1();
+	})
+	changemargin1=function()
+	{
+		var x= $("#1").css('margin-top').toString();
+		
+		$("#margin1val").text(x.toString());
+	}
+	changemargin1();
+
+	$(document).ready(function() { 
+		$("#margin2").val(0);
+	});
+	$("#margin2").on('input',function(){
+		$("#2").css('margin',$(this).val().toString()+'px');
+		changemargin2();
+	})
+	changemargin2=function()
+	{
+		var x= $("#2").css('margin-top').toString();
+		
+		$("#margin2val").text(x.toString());
+	}
+	changemargin2();
+
+
+	$(document).ready(function() { 
+		$("#width1").val(100);
+	});
+	$("#width1").on('input',function(){
+		$("#1").css('width',$(this).val().toString()+'px');
+		changewidth1();
+	})
+	changewidth1=function()
+	{
+		var x= $("#1").css('width');
+		console.log(parseInt(x));
+		
+		$("#width1val").text(x.toString());
+	}
+	changewidth1();
+
+	$(document).ready(function() { 
+		$("#height1").val(100);
+	});
+	$("#height1").on('input',function(){
+		$("#1").css('height',$(this).val().toString()+'px');
+		changeheight1();
+	})
+	changeheight1=function()
+	{
+		var x= $("#1").css('height');
+		console.log(parseInt(x));
+		
+		$("#height1val").text(x.toString());
+	}
+	changeheight1();
+
+	$(document).ready(function() { 
+		$("#width2").val(100);
+	});
+	$("#width2").on('input',function(){
+		$("#2").css('width',$(this).val().toString()+'px');
+		changewidth2();
+	})
+	changewidth2=function()
+	{
+		var x= $("#2").css('width');
+		console.log(parseInt(x));
+		
+		$("#width2val").text(x.toString());
+	}
+	changewidth2();
+
+	$(document).ready(function() { 
+		$("#height2").val(100);
+	});
+	$("#height2").on('input',function(){
+		$("#2").css('height',$(this).val().toString()+'px');
+		changeheight2();
+	})
+	changeheight2=function()
+	{
+		var x= $("#2").css('height');
+		console.log(parseInt(x));
+		
+		$("#height2val").text(x.toString());
+	}
+	changeheight2();
+</script>
+</div>
+</body>
+</html>	
