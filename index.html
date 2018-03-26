@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>   </title>
+	<title></title>
 </head>
 <body>
 	<meta charset="UTF-8"> 
@@ -263,6 +263,7 @@
 
 		$("#1").css('padding',$(this).val().toString()+'px');
 		changepadding1();
+		func();
 	})
 	changepadding1=function()
 	{
@@ -279,6 +280,7 @@
 
 		$("#2").css('padding',$(this).val().toString()+'px');
 		changepadding2();
+		func();
 	})
 	changepadding2=function()
 	{
@@ -296,6 +298,7 @@
 	$("#margin1").on('input',function(){
 		$("#1").css('margin',$(this).val().toString()+'px');
 		changemargin1();
+		func();
 	})
 	changemargin1=function()
 	{
@@ -311,6 +314,7 @@
 	$("#margin2").on('input',function(){
 		$("#2").css('margin',$(this).val().toString()+'px');
 		changemargin2();
+		func();
 	})
 	changemargin2=function()
 	{
@@ -327,6 +331,7 @@
 	$("#width1").on('input',function(){
 		$("#1").css('width',$(this).val().toString()+'px');
 		changewidth1();
+		func();
 	})
 	changewidth1=function()
 	{
@@ -343,6 +348,7 @@
 	$("#height1").on('input',function(){
 		$("#1").css('height',$(this).val().toString()+'px');
 		changeheight1();
+		func();
 	})
 	changeheight1=function()
 	{
@@ -359,6 +365,7 @@
 	$("#width2").on('input',function(){
 		$("#2").css('width',$(this).val().toString()+'px');
 		changewidth2();
+		func();
 	})
 	changewidth2=function()
 	{
@@ -366,6 +373,7 @@
 		console.log(parseInt(x));
 		
 		$("#width2val").text(x.toString());
+
 	}
 	changewidth2();
 
@@ -375,6 +383,7 @@
 	$("#height2").on('input',function(){
 		$("#2").css('height',$(this).val().toString()+'px');
 		changeheight2();
+		func();
 	})
 	changeheight2=function()
 	{
@@ -382,8 +391,20 @@
 		console.log(parseInt(x));
 		
 		$("#height2val").text(x.toString());
+
 	}
 	changeheight2();
+	func=function()
+	{
+		changemargin1();
+		changemargin2();
+		changeheight2();
+		changeheight1();
+		changewidth1();
+		changewidth2();
+		changepadding1();
+		changepadding2();
+	}
 </script>
 </div>
 </body>
